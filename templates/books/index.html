@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}My book collection{% endblock %}
+
+{% block content %}
+<h1>My book collection</h1>
+{% if books_list %}
+<ul>
+    {% for b in books_list %}
+        <li>{{b.title}} | {{b.author}} | {{b.read}}</li>
+    {% endfor %}
+
+</ul>
+{% endif %}
+{% endblock %}
