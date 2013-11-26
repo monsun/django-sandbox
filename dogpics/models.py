@@ -5,6 +5,9 @@ class Photographer(models.Model):
     name = models.CharField(max_length=150)
     email = models.EmailField()
 
+    def __unicode__(self):
+        return self.name + '('+self.email+')'
+
 
 class Album(models.Model):
     Draft, Published, Archived = range(3)
@@ -13,6 +16,9 @@ class Album(models.Model):
     publication_date = models.DateTimeField()
     status = models.IntegerField()
     author = models.ForeignKey(Photographer)
+
+    def __unicode__(self):
+        return self.name+' - '+self.author.name
 
 
 class Picture(models.Model):
