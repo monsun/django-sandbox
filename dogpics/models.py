@@ -6,7 +6,7 @@ class Photographer(models.Model):
     email = models.EmailField()
 
     def __unicode__(self):
-        return self.name + '('+self.email+')'
+        return self.name + '(' + self.email + ')'
 
 
 class Album(models.Model):
@@ -14,11 +14,11 @@ class Album(models.Model):
     name = models.CharField(max_length=200)
     location = models.CharField(max_length=130)
     publication_date = models.DateTimeField()
-    status = models.IntegerField()
+    status = models.IntegerField(blank=True)
     author = models.ForeignKey(Photographer)
 
     def __unicode__(self):
-        return self.name+' - '+self.author.name
+        return self.name + ' - ' + self.author.name
 
 
 class Picture(models.Model):
