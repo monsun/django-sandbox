@@ -14,7 +14,7 @@ class Album(models.Model):
     name = models.CharField(max_length=200)
     location = models.CharField(max_length=130)
     publication_date = models.DateTimeField()
-    status = models.IntegerField(blank=True)
+    status = models.IntegerField(null=True, blank=True, default=None)
     author = models.ForeignKey(Photographer)
 
     def __unicode__(self):
