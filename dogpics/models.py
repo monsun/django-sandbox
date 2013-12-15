@@ -22,7 +22,7 @@ class Album(models.Model):
 
 
 class Picture(models.Model):
-    image_file = models.ImageField(upload_to='/uploads')
+    image_file = models.ImageField(upload_to='uploads')
     description = models.CharField(max_length=300)
     album = models.ForeignKey(Album)
     price = models.DecimalField(max_digits=4, decimal_places=2)

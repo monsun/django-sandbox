@@ -86,3 +86,56 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+
+#Logging config here:
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(message)s',
+        },
+    },
+
+    'handlers': {
+        'null': {
+            'level': 'DEBUG',
+            'class': 'django.utils.log.NullHandler',
+        },
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose',
+        },
+        'mail_admins': {
+            'level': 'ERROR',
+            'class': 'django.utils.log.AdminEmailHandler',
+        },
+    },
+
+    'loggers': {
+        'django': {
+            'level': 'INFO',
+            'propagate': True,
+            'handlers': ['console'],
+        },
+        'django.db': {
+            'level': 'DEBUG',
+            'propagate': True,
+            'handlers': ['console'],
+        },
+        'django.request': {
+            'level': 'DEBUG',
+            'propagate': True,
+            'handlers': ['console'],
+        },
+        'sandbox': {
+            'level': 'DEBUG',
+            'propagate': True,
+            'handlers': ['console', 'mail_admins']
+        },
+    },
+}
+
+
+
