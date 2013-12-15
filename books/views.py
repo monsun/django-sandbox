@@ -1,7 +1,8 @@
-from django.shortcuts import render
+#from django.shortcuts import render
 from django.http import HttpResponse
-from books.models import Book
 from django.template import Context, loader
+
+from books.models import Book
 
 
 def index(request):

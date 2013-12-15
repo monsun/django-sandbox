@@ -10,6 +10,7 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^books/$', 'books.views.index'),
-    #url(r'^dogpics/$', 'dogpics.views.index'),
+    url(r'^dogpics/$', 'dogpics.views.albums_view'),
+    url(r'^dogpics/album/(?P<album_id>\d+)$', 'dogpics.views.album_view'),
 
 )
